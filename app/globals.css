@@ -1,71 +1,163 @@
 /* ============================
-   Global Theme & Base Styles
+   Tailwind + Theme Tokens
    ============================ */
-
 @import "tailwindcss";
 
+/* Define Tailwind tokens → utilities like bg-primary, text-foreground */
 @theme {
-  /* 🌌 Cosmic Neon Color Tokens */
-  --color-background: #0f172a;   /* deep midnight navy */
-  --color-foreground: #e2e8f0;   /* soft gray-blue text */
-  --color-primary: #7dd3fc;      /* electric sky blue */
-  --color-secondary: #f472b6;    /* vibrant neon pink */
-  --color-accent: #a78bfa;       /* glowing purple */
-  --color-muted: #64748b;        /* slate gray */
+  --color-background: var(--t-background);
+  --color-foreground: var(--t-foreground);
+  --color-primary:    var(--t-primary);
+  --color-secondary:  var(--t-secondary);
+  --color-accent:     var(--t-accent);
+  --color-muted:      var(--t-muted);
 
-  /* Typography */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-sans: var(--t-font-sans);
+  --font-serif: var(--t-font-serif);
+  --font-mono: var(--t-font-mono);
 
-  /* Radius & Shadows */
-  --radius: 1rem;
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --radius-sm: var(--t-radius-sm);
+  --radius-md: var(--t-radius-md);
+  --radius-lg: var(--t-radius-lg);
+  --radius-full: var(--t-radius-full);
 
-  /* Animations */
-  --animate-fade-in: fadeIn 0.4s ease-out forwards;
+  --shadow-sm: var(--t-shadow-sm);
+  --shadow-md: var(--t-shadow-md);
+  --shadow-lg: var(--t-shadow-lg);
 }
 
 /* ============================
-   Base Layer
+   Default Light / Weird Theme 🌈
    ============================ */
 @layer base {
-  html {
-    @apply scroll-smooth;
-  }
+  :root {
+    --t-background: #fffbf0;
+    --t-foreground: #2b0057;
+    --t-primary:    #ff00aa;
+    --t-secondary:  #00ffe1;
+    --t-accent:     #ffea00;
+    --t-muted:      #8cff66;
 
+    --t-font-sans: "Comic Sans MS", "Chalkboard SE", cursive, sans-serif;
+    --t-font-serif: "Papyrus", "Courier New", fantasy, serif;
+    --t-font-mono: "VT323", "Lucida Console", monospace;
+
+    --t-radius-sm: 0.75rem;
+    --t-radius-md: 1.5rem;
+    --t-radius-lg: 2.5rem;
+    --t-radius-full: 50%;
+
+    --t-shadow-sm: 0 0 5px rgba(255, 0, 170, 0.8);
+    --t-shadow-md: 0 0 12px rgba(0, 255, 225, 0.7);
+    --t-shadow-lg: 0 0 25px rgba(255, 234, 0, 0.9);
+  }
+}
+
+/* ============================
+   Forest Theme 🍄
+   ============================ */
+@layer base {
+  html.forest {
+    --t-background: #fdf7ff;
+    --t-foreground: #3b0066;
+    --t-primary:    #ff66c4;
+    --t-secondary:  #00ff87;
+    --t-accent:     #ffd700;
+    --t-muted:      #8080ff;
+
+    --t-shadow-sm: 0 0 5px rgba(255, 102, 196, 0.6);
+    --t-shadow-md: 0 0 12px rgba(0, 255, 135, 0.7);
+    --t-shadow-lg: 0 0 25px rgba(255, 215, 0, 0.9);
+  }
+}
+
+/* ============================
+   Cyberpunk Theme ⚡
+   ============================ */
+@layer base {
+  html.cyberpunk {
+    --t-background: #0a0a0f;
+    --t-foreground: #f5f5f5;
+    --t-primary:    #ff007c;
+    --t-secondary:  #00ffe5;
+    --t-accent:     #ffef00;
+    --t-muted:      #6c6cfa;
+
+    --t-shadow-sm: 0 0 6px rgba(255, 0, 124, 0.8);
+    --t-shadow-md: 0 0 15px rgba(0, 255, 229, 0.8);
+    --t-shadow-lg: 0 0 30px rgba(255, 239, 0, 1);
+  }
+}
+
+/* ============================
+   Retro Terminal Theme 💾
+   ============================ */
+@layer base {
+  html.terminal {
+    --t-background: #001100;
+    --t-foreground: #00ff66;
+    --t-primary:    #00ff66;
+    --t-secondary:  #33ff99;
+    --t-accent:     #ff33cc;
+    --t-muted:      #009944;
+
+    --t-font-sans: "Courier New", monospace;
+    --t-font-serif: "Courier New", monospace;
+    --t-font-mono: "Courier New", monospace;
+
+    --t-shadow-sm: none;
+    --t-shadow-md: none;
+    --t-shadow-lg: none;
+  }
+}
+
+/* ============================
+   Dark Theme (System Preference)
+   ============================ */
+@layer base {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --t-background: #1b0033;
+      --t-foreground: #ffea00;
+      --t-primary:    #00ffe1;
+      --t-secondary:  #ff00aa;
+      --t-accent:     #8cff66;
+      --t-muted:      #ff8800;
+
+      --t-shadow-sm: 0 0 6px rgba(255, 0, 170, 0.9);
+      --t-shadow-md: 0 0 15px rgba(0, 255, 225, 0.8);
+      --t-shadow-lg: 0 0 30px rgba(255, 234, 0, 1);
+    }
+  }
+}
+
+/* ============================
+   Base Styles
+   ============================ */
+@layer base {
   body {
     @apply bg-background text-foreground antialiased leading-relaxed;
-    font-feature-settings: "liga" 1, "kern" 1;
     font-family: var(--font-sans);
     transition: background-color 0.3s, color 0.3s;
   }
 
-  h1 {
-    @apply text-4xl md:text-5xl font-bold tracking-tight text-primary;
-  }
-  h2 {
-    @apply text-3xl md:text-4xl font-semibold tracking-tight text-secondary;
-  }
-  h3 {
-    @apply text-2xl md:text-3xl font-semibold text-accent;
-  }
-  h4, h5, h6 {
-    @apply font-semibold text-foreground;
-  }
+  h1 { @apply text-4xl md:text-5xl font-bold tracking-tight; color: var(--color-primary); }
+  h2 { @apply text-3xl md:text-4xl font-semibold tracking-tight; color: var(--color-secondary); }
+  h3 { @apply text-2xl md:text-3xl font-semibold; color: var(--color-accent); }
+  h4, h5, h6 { @apply font-semibold; color: var(--color-foreground); }
 
-  p {
-    @apply text-base leading-7 text-foreground/90;
-  }
+  p { @apply text-base leading-7; color: var(--color-foreground); }
 
-  a {
-    @apply text-primary hover:text-secondary transition-colors duration-200;
-  }
+  a { color: var(--color-primary); text-decoration: underline; transition: color 0.3s; }
+  a:hover { color: var(--color-secondary); }
 
   button {
-    @apply px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-medium shadow-md
-      hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 ease-in-out;
+    @apply px-4 py-2 font-medium transition-all duration-200 ease-in-out;
+    border-radius: var(--radius-md);
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    color: #fff;
+    box-shadow: var(--shadow-md);
   }
+  button:hover { transform: scale(1.05); }
+  button:active { transform: scale(0.95); }
 }
