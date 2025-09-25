@@ -27,47 +27,47 @@
 }
 
 /* ============================
-   Default Light / Weird Theme 🌈
+   Default Light Theme 🌞
    ============================ */
 @layer base {
   :root {
-    --t-background: #fffbf0;
-    --t-foreground: #2b0057;
-    --t-primary:    #ff00aa;
-    --t-secondary:  #00ffe1;
-    --t-accent:     #ffea00;
-    --t-muted:      #8cff66;
+    --t-background: #ffffff;
+    --t-foreground: #1a1a1a;
+    --t-primary:    #2563eb; /* modern blue */
+    --t-secondary:  #7c3aed; /* violet */
+    --t-accent:     #f59e0b; /* amber */
+    --t-muted:      #9ca3af; /* neutral gray */
 
-    --t-font-sans: "Comic Sans MS", "Chalkboard SE", cursive, sans-serif;
-    --t-font-serif: "Papyrus", "Courier New", fantasy, serif;
-    --t-font-mono: "VT323", "Lucida Console", monospace;
+    --t-font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+    --t-font-serif: "Merriweather", Georgia, serif;
+    --t-font-mono: "JetBrains Mono", "Fira Code", monospace;
 
-    --t-radius-sm: 0.75rem;
-    --t-radius-md: 1.5rem;
-    --t-radius-lg: 2.5rem;
-    --t-radius-full: 50%;
+    --t-radius-sm: 0.375rem;
+    --t-radius-md: 0.75rem;
+    --t-radius-lg: 1.25rem;
+    --t-radius-full: 9999px;
 
-    --t-shadow-sm: 0 0 5px rgba(255, 0, 170, 0.8);
-    --t-shadow-md: 0 0 12px rgba(0, 255, 225, 0.7);
-    --t-shadow-lg: 0 0 25px rgba(255, 234, 0, 0.9);
+    --t-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --t-shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --t-shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
   }
 }
 
 /* ============================
-   Forest Theme 🍄
+   Forest Theme 🍃
    ============================ */
 @layer base {
   html.forest {
-    --t-background: #fdf7ff;
-    --t-foreground: #3b0066;
-    --t-primary:    #ff66c4;
-    --t-secondary:  #00ff87;
-    --t-accent:     #ffd700;
-    --t-muted:      #8080ff;
+    --t-background: #f9fafb;
+    --t-foreground: #1e293b;
+    --t-primary:    #166534; /* deep green */
+    --t-secondary:  #22c55e; /* emerald */
+    --t-accent:     #ca8a04; /* golden earthy */
+    --t-muted:      #94a3b8;
 
-    --t-shadow-sm: 0 0 5px rgba(255, 102, 196, 0.6);
-    --t-shadow-md: 0 0 12px rgba(0, 255, 135, 0.7);
-    --t-shadow-lg: 0 0 25px rgba(255, 215, 0, 0.9);
+    --t-shadow-sm: 0 2px 4px rgba(22,101,52,0.15);
+    --t-shadow-md: 0 4px 8px rgba(34,197,94,0.25);
+    --t-shadow-lg: 0 12px 20px rgba(34,197,94,0.35);
   }
 }
 
@@ -76,16 +76,16 @@
    ============================ */
 @layer base {
   html.cyberpunk {
-    --t-background: #0a0a0f;
-    --t-foreground: #f5f5f5;
-    --t-primary:    #ff007c;
-    --t-secondary:  #00ffe5;
-    --t-accent:     #ffef00;
-    --t-muted:      #6c6cfa;
+    --t-background: #0d0d0d;
+    --t-foreground: #e5e7eb;
+    --t-primary:    #e11d48; /* neon pink */
+    --t-secondary:  #06b6d4; /* neon cyan */
+    --t-accent:     #facc15; /* neon yellow */
+    --t-muted:      #64748b;
 
-    --t-shadow-sm: 0 0 6px rgba(255, 0, 124, 0.8);
-    --t-shadow-md: 0 0 15px rgba(0, 255, 229, 0.8);
-    --t-shadow-lg: 0 0 30px rgba(255, 239, 0, 1);
+    --t-shadow-sm: 0 0 6px rgba(225,29,72,0.6);
+    --t-shadow-md: 0 0 12px rgba(6,182,212,0.7);
+    --t-shadow-lg: 0 0 24px rgba(250,204,21,0.8);
   }
 }
 
@@ -94,16 +94,16 @@
    ============================ */
 @layer base {
   html.terminal {
-    --t-background: #001100;
-    --t-foreground: #00ff66;
-    --t-primary:    #00ff66;
-    --t-secondary:  #33ff99;
-    --t-accent:     #ff33cc;
-    --t-muted:      #009944;
+    --t-background: #000000;
+    --t-foreground: #00ff7f; /* vivid green */
+    --t-primary:    #00ff7f;
+    --t-secondary:  #1affb2;
+    --t-accent:     #ff66c4; /* retro magenta */
+    --t-muted:      #004d26;
 
-    --t-font-sans: "Courier New", monospace;
-    --t-font-serif: "Courier New", monospace;
-    --t-font-mono: "Courier New", monospace;
+    --t-font-sans: "IBM Plex Mono", monospace;
+    --t-font-serif: "IBM Plex Mono", monospace;
+    --t-font-mono: "IBM Plex Mono", monospace;
 
     --t-shadow-sm: none;
     --t-shadow-md: none;
@@ -112,21 +112,21 @@
 }
 
 /* ============================
-   Dark Theme (System Preference)
+   Dark Theme (System Prefers)
    ============================ */
 @layer base {
   @media (prefers-color-scheme: dark) {
     :root {
-      --t-background: #1b0033;
-      --t-foreground: #ffea00;
-      --t-primary:    #00ffe1;
-      --t-secondary:  #ff00aa;
-      --t-accent:     #8cff66;
-      --t-muted:      #ff8800;
+      --t-background: #0f172a;
+      --t-foreground: #f8fafc;
+      --t-primary:    #3b82f6;
+      --t-secondary:  #a855f7;
+      --t-accent:     #f59e0b;
+      --t-muted:      #64748b;
 
-      --t-shadow-sm: 0 0 6px rgba(255, 0, 170, 0.9);
-      --t-shadow-md: 0 0 15px rgba(0, 255, 225, 0.8);
-      --t-shadow-lg: 0 0 30px rgba(255, 234, 0, 1);
+      --t-shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+      --t-shadow-md: 0 4px 8px rgba(0,0,0,0.5);
+      --t-shadow-lg: 0 12px 20px rgba(0,0,0,0.6);
     }
   }
 }
@@ -152,12 +152,9 @@
   a:hover { color: var(--color-secondary); }
 
   button {
-    @apply px-4 py-2 font-medium transition-all duration-200 ease-in-out;
-    border-radius: var(--radius-md);
-    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-    color: #fff;
-    box-shadow: var(--shadow-md);
+    outline: none;
+    cursor: pointer;
   }
-  button:hover { transform: scale(1.05); }
-  button:active { transform: scale(0.95); }
+  button:hover {  }
+  button:active { outline: none; }
 }
