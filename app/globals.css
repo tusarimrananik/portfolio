@@ -1,26 +1,71 @@
+/* ============================
+   Global Theme & Base Styles
+   ============================ */
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* 🌌 Cosmic Neon Color Tokens */
+  --color-background: #0f172a;   /* deep midnight navy */
+  --color-foreground: #e2e8f0;   /* soft gray-blue text */
+  --color-primary: #7dd3fc;      /* electric sky blue */
+  --color-secondary: #f472b6;    /* vibrant neon pink */
+  --color-accent: #a78bfa;       /* glowing purple */
+  --color-muted: #64748b;        /* slate gray */
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  /* Radius & Shadows */
+  --radius: 1rem;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  /* Animations */
+  --animate-fade-in: fadeIn 0.4s ease-out forwards;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================
+   Base Layer
+   ============================ */
+@layer base {
+  html {
+    @apply scroll-smooth;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground antialiased leading-relaxed;
+    font-feature-settings: "liga" 1, "kern" 1;
+    font-family: var(--font-sans);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight text-primary;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight text-secondary;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold text-accent;
+  }
+  h4, h5, h6 {
+    @apply font-semibold text-foreground;
+  }
+
+  p {
+    @apply text-base leading-7 text-foreground/90;
+  }
+
+  a {
+    @apply text-primary hover:text-secondary transition-colors duration-200;
+  }
+
+  button {
+    @apply px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-medium shadow-md
+      hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 ease-in-out;
+  }
 }
