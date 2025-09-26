@@ -1,16 +1,19 @@
-import { Button } from "@/components/Button";
+import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar"
 
-export default function Page() {
+import Projects from "@/components/Projects"
+
+
+
+export default function Home() {
+
   return (
-    <div className="flex flex-col gap-4 p-6 w-100">
-      <Button>Primary</Button>
-      <Button variant="secondary" size="lg" shadow="lg">
-        Secondary Large
-      </Button>
-      <Button variant="accent" size="sm" shadow="none">
-        Accent Small
-      </Button>
-      <Button variant="ghost">Ghost</Button>
-    </div>
-  );
+
+    <>
+      <Navbar />
+      <Hero />
+
+    </>
+  )
+
 }

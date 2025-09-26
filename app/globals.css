@@ -1,16 +1,12 @@
-/* ============================
-   Tailwind + Theme Tokens
-   ============================ */
 @import "tailwindcss";
 
-/* Define Tailwind tokens → utilities like bg-primary, text-foreground */
 @theme {
   --color-background: var(--t-background);
   --color-foreground: var(--t-foreground);
-  --color-primary:    var(--t-primary);
-  --color-secondary:  var(--t-secondary);
-  --color-accent:     var(--t-accent);
-  --color-muted:      var(--t-muted);
+  --color-primary: var(--t-primary);
+  --color-secondary: var(--t-secondary);
+  --color-accent: var(--t-accent);
+  --color-muted: var(--t-muted);
 
   --font-sans: var(--t-font-sans);
   --font-serif: var(--t-font-serif);
@@ -26,135 +22,116 @@
   --shadow-lg: var(--t-shadow-lg);
 }
 
-/* ============================
-   Default Light Theme 🌞
-   ============================ */
 @layer base {
   :root {
     --t-background: #ffffff;
-    --t-foreground: #1a1a1a;
-    --t-primary:    #2563eb; /* modern blue */
-    --t-secondary:  #7c3aed; /* violet */
-    --t-accent:     #f59e0b; /* amber */
-    --t-muted:      #9ca3af; /* neutral gray */
+    /* hero section: white */
+    --t-foreground: #1f2937;
+    /* hero text: gray-800 */
+    --t-primary: #6366f1;
+    /* indigo-500 */
+    --t-secondary: #ec4899;
+    /* pink-500 */
+    --t-accent: #f59e0b;
+    /* amber-500 */
+    --t-muted: #6b7280;
+    /* gray-500 */
 
-    --t-font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
-    --t-font-serif: "Merriweather", Georgia, serif;
-    --t-font-mono: "JetBrains Mono", "Fira Code", monospace;
+    --t-font-sans: "Inter", system-ui, sans-serif;
+    --t-font-serif: "Merriweather", serif;
+    --t-font-mono: "Fira Code", "JetBrains Mono", monospace;
 
-    --t-radius-sm: 0.375rem;
-    --t-radius-md: 0.75rem;
-    --t-radius-lg: 1.25rem;
+    --t-radius-sm: 0.25rem;
+    --t-radius-md: 0.5rem;
+    --t-radius-lg: 0.75rem;
     --t-radius-full: 9999px;
 
-    --t-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-    --t-shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-    --t-shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
+    /* --t-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --t-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --t-shadow-lg: 0 12px 20px rgba(0, 0, 0, 0.25); */
+
+
+    --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.08),
+      0 0 2px rgba(255, 255, 255, 0.2);
+    /* soft inner glow */
+    --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.12),
+      0 0 4px rgba(255, 255, 255, 0.25);
+    --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.18),
+      0 0 8px rgba(255, 255, 255, 0.3);
   }
 }
 
-/* ============================
-   Forest Theme 🍃
-   ============================ */
-@layer base {
-  html.forest {
-    --t-background: #f9fafb;
-    --t-foreground: #1e293b;
-    --t-primary:    #166534; /* deep green */
-    --t-secondary:  #22c55e; /* emerald */
-    --t-accent:     #ca8a04; /* golden earthy */
-    --t-muted:      #94a3b8;
-
-    --t-shadow-sm: 0 2px 4px rgba(22,101,52,0.15);
-    --t-shadow-md: 0 4px 8px rgba(34,197,94,0.25);
-    --t-shadow-lg: 0 12px 20px rgba(34,197,94,0.35);
-  }
-}
-
-/* ============================
-   Cyberpunk Theme ⚡
-   ============================ */
-@layer base {
-  html.cyberpunk {
-    --t-background: #0d0d0d;
-    --t-foreground: #e5e7eb;
-    --t-primary:    #e11d48; /* neon pink */
-    --t-secondary:  #06b6d4; /* neon cyan */
-    --t-accent:     #facc15; /* neon yellow */
-    --t-muted:      #64748b;
-
-    --t-shadow-sm: 0 0 6px rgba(225,29,72,0.6);
-    --t-shadow-md: 0 0 12px rgba(6,182,212,0.7);
-    --t-shadow-lg: 0 0 24px rgba(250,204,21,0.8);
-  }
-}
-
-/* ============================
-   Retro Terminal Theme 💾
-   ============================ */
-@layer base {
-  html.terminal {
-    --t-background: #000000;
-    --t-foreground: #00ff7f; /* vivid green */
-    --t-primary:    #00ff7f;
-    --t-secondary:  #1affb2;
-    --t-accent:     #ff66c4; /* retro magenta */
-    --t-muted:      #004d26;
-
-    --t-font-sans: "IBM Plex Mono", monospace;
-    --t-font-serif: "IBM Plex Mono", monospace;
-    --t-font-mono: "IBM Plex Mono", monospace;
-
-    --t-shadow-sm: none;
-    --t-shadow-md: none;
-    --t-shadow-lg: none;
-  }
-}
-
-/* ============================
-   Dark Theme (System Prefers)
-   ============================ */
 @layer base {
   @media (prefers-color-scheme: dark) {
     :root {
-      --t-background: #0f172a;
-      --t-foreground: #f8fafc;
-      --t-primary:    #3b82f6;
-      --t-secondary:  #a855f7;
-      --t-accent:     #f59e0b;
-      --t-muted:      #64748b;
-
-      --t-shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
-      --t-shadow-md: 0 4px 8px rgba(0,0,0,0.5);
-      --t-shadow-lg: 0 12px 20px rgba(0,0,0,0.6);
+      --t-background: #111827;
+      /* dark gray/navy */
+      --t-foreground: #f9fafb;
+      /* light gray text */
+      --t-primary: #6366f1;
+      /* keep indigo tone */
+      --t-secondary: #ec4899;
+      /* pink highlight */
+      --t-accent: #f59e0b;
+      /* amber accent */
+      --t-muted: #9ca3af;
+      /* muted gray */
     }
   }
 }
 
-/* ============================
-   Base Styles
-   ============================ */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply font-sans text-base leading-7;
+  }
+
   body {
-    @apply bg-background text-foreground antialiased leading-relaxed;
-    font-family: var(--font-sans);
-    transition: background-color 0.3s, color 0.3s;
+    @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  h1 { @apply text-4xl md:text-5xl font-bold tracking-tight; color: var(--color-primary); }
-  h2 { @apply text-3xl md:text-4xl font-semibold tracking-tight; color: var(--color-secondary); }
-  h3 { @apply text-2xl md:text-3xl font-semibold; color: var(--color-accent); }
-  h4, h5, h6 { @apply font-semibold; color: var(--color-foreground); }
-
-  p { @apply text-base leading-7; color: var(--color-foreground); }
-
-  a { color: var(--color-primary); text-decoration: underline; transition: color 0.3s; }
-  a:hover { color: var(--color-secondary); }
-
-  button {
-    outline: none;
-    cursor: pointer;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-mono font-bold leading-tight text-foreground mb-2;
   }
-  button:hover {  }
-  button:active { outline: none; }
+
+  p {
+    @apply text-foreground mb-4;
+  }
+
+  a {
+    @apply text-primary no-underline transition-colors;
+  }
+
+  a:hover {
+    @apply text-secondary;
+  }
+
+  code,
+  pre {
+    @apply font-mono rounded-sm px-1 py-0.5;
+    background-color: rgba(99, 102, 241, 0.08);
+    /* faint indigo glow */
+  }
+
+
+
+}
+
+
+  @keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
 }

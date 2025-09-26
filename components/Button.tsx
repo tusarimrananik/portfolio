@@ -1,5 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils"; // clsx + tailwind-merge helper
+import { Slot } from "@radix-ui/react-slot";
+import { ElementType, ReactNode } from "react";
 
 // CVA configuration
 const buttonVariants = cva(
@@ -38,19 +40,21 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean; // <-- add asChild
+  children: ReactNode;
+}
 
 export function Button({
   className,
   variant,
   size,
   shadow,
+  asChild,
   ...props
 }: ButtonProps) {
+  const Comp: ElementType = asChild ? Slot : "button";
   return (
-    <button
-      className={cn(buttonVariants({ variant, size, shadow }), className)}
-      {...props}
-    />
+    <Comp className={cn(buttonVariants({ variant, size, shadow }), className)} {...props} />
   );
 }
