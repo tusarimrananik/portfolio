@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 pt-4 sm:pt-6">
               <a
                 href="#projects"
-                className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-semibold bg-primary text-white shadow-md hover:shadow-lg  transition-all text-sm sm:text-base"
+                className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-semibold bg-primary text-background shadow-md hover:shadow-lg  transition-all text-sm sm:text-base"
               >
                Explore My Work
               </a>
@@ -142,7 +142,7 @@ const Hero: React.FC = () => {
               <a
                 href="#"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-semibold bg-accent text-white shadow-md hover:shadow-lg  transition-all text-sm sm:text-base"
+                className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-semibold bg-accent text-background shadow-md hover:shadow-lg  transition-all text-sm sm:text-base"
               >
                 Resume
               </a>
