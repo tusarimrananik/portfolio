@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
 
               <div className="space-y-3 sm:space-y-4">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight">
-                  <span className="block text-primary">Hi, I'm Anik!</span>
+                  <span className="block text-primary">Hi, I&apos;m Anik!</span>
                   <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-foreground/80 mt-2 sm:mt-4">
                     Building the future, one line at a time
                   </span>
