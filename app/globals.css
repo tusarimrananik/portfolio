@@ -397,13 +397,14 @@ h1 span {
 
 .project-list {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
 .project-card {
   position: relative;
   overflow: hidden;
-  padding: clamp(26px, 4vw, 52px);
+  padding: clamp(26px, 3vw, 42px);
   border: 1px solid var(--line);
   border-radius: 26px;
   background: var(--paper);
@@ -451,7 +452,7 @@ h1 span {
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  margin-bottom: clamp(38px, 5vw, 74px);
+  margin-bottom: clamp(32px, 4vw, 54px);
   color: var(--ink-soft);
   font-size: 11px;
   font-weight: 750;
@@ -463,7 +464,7 @@ h1 span {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
   gap: 30px;
   align-items: start;
 }
@@ -471,7 +472,7 @@ h1 span {
 .project-body h3 {
   margin-bottom: 14px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 3vw, 3.4rem);
+  font-size: clamp(1.8rem, 2.5vw, 2.8rem);
   font-weight: 500;
   letter-spacing: -0.04em;
   line-height: 1.05;
@@ -483,19 +484,28 @@ h1 span {
   color: var(--ink-soft);
 }
 
-.project-link {
-  display: grid;
-  width: 54px;
-  height: 54px;
-  place-items: center;
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.project-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 14px;
   border: 1px solid var(--line);
-  border-radius: 50%;
+  border-radius: 100px;
   background: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  font-weight: 750;
   transition: transform 180ms ease, background 180ms ease, color 180ms ease;
 }
 
-.project-link:hover {
-  transform: rotate(8deg);
+.project-action:hover {
+  transform: translateY(-2px);
   background: var(--ink);
   color: var(--white);
 }
@@ -853,6 +863,10 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+
   .about-copy {
     max-width: 760px;
   }
@@ -908,16 +922,8 @@ footer {
     gap: 18px;
   }
 
-  .project-link {
-    position: absolute;
-    right: 0;
-    bottom: -72px;
-    width: 44px;
-    height: 44px;
-  }
-
   .tag-list {
-    padding-right: 55px;
+    padding-right: 0;
   }
 
   .skills-grid,
