@@ -17,32 +17,123 @@ import {
 const projects = [
   {
     number: "01",
-    title: "HealthSentinel BD",
-    type: "Public-health intelligence platform",
+    title: "Focus Guard",
+    type: "Chrome extension · Productivity",
     description:
-      "A local-first disease outbreak early-warning MVP for Bangladesh, combining district risk views, forecasts, hotspot maps, alerts, triage and an optional AI-generated narrative.",
-    stack: ["Next.js", "TypeScript", "SQLite", "Leaflet", "Recharts"],
-    href: "https://github.com/tusarimrananik/health-sentinel",
+      "A privacy-first focus timer that blocks user-selected distracting websites during active study sessions. Built for Chrome with no accounts, tracking or backend.",
+    stack: ["Manifest V3", "JavaScript", "Chrome APIs", "Local storage"],
+    repo: "https://github.com/tusarimrananik/focus-guard-extension",
     accent: "emerald",
   },
   {
     number: "02",
-    title: "Interval Timer",
-    type: "Native Android utility",
+    title: "Prism Pick",
+    type: "Chrome extension · Design utility",
     description:
-      "A reliable interval-reminder app with custom schedules, distinct alert sounds, exact alarms and automatic schedule restoration after a device restart.",
-    stack: ["Kotlin", "Jetpack Compose", "Material 3", "AlarmManager"],
-    href: "https://github.com/tusarimrananik/interval-timer",
+      "A fast color-picker extension prepared as a complete, store-ready package with accessible UI, publishing assets and documentation.",
+    stack: ["Manifest V3", "JavaScript", "HTML", "CSS"],
+    repo: "https://github.com/tusarimrananik/prism-pick-chrome-extension",
     accent: "amber",
   },
   {
     number: "03",
-    title: "XTTS Voice Studio",
-    type: "AI speech experiment",
+    title: "HealthSentinel BD",
+    type: "Public-health intelligence platform",
     description:
-      "A Python-based text-to-speech and voice-cloning experiment built around Coqui XTTS v2, with multilingual synthesis and custom-speaker support.",
-    stack: ["Python", "Coqui XTTS", "PyTorch", "Torchaudio"],
-    href: "https://github.com/tusarimrananik/video-generator",
+      "A local-first disease outbreak early-warning MVP for Bangladesh with district risk views, forecasts, hotspot maps, alerts and triage.",
+    stack: ["Next.js", "TypeScript", "SQLite", "Data visualization"],
+    repo: "https://github.com/tusarimrananik/health-sentinel",
+    accent: "violet",
+  },
+  {
+    number: "04",
+    title: "Interval Timer",
+    type: "Android productivity utility",
+    description:
+      "A dependable interval-reminder app with custom schedules, distinct alerts, exact alarms and automatic restoration after a device restart.",
+    stack: ["Kotlin", "Jetpack Compose", "Material 3", "AlarmManager"],
+    repo: "https://github.com/tusarimrananik/interval-timer",
+    accent: "emerald",
+  },
+  {
+    number: "05",
+    title: "YouTube Transcript Project",
+    type: "AI-assisted content tool",
+    description:
+      "A focused project for working with YouTube transcripts and turning long-form video content into structured, reusable information.",
+    stack: ["JavaScript", "Web APIs", "Content processing"],
+    repo: "https://github.com/tusarimrananik/youtube-transcript-project",
+    accent: "amber",
+  },
+  {
+    number: "06",
+    title: "Voice",
+    type: "Speech and voice experiment",
+    description:
+      "An experimental voice application exploring practical speech workflows and lightweight user-facing audio tooling.",
+    stack: ["JavaScript", "Audio", "Web application"],
+    repo: "https://github.com/tusarimrananik/voice",
+    accent: "violet",
+  },
+  {
+    number: "07",
+    title: "Video Generator",
+    type: "AI media workflow",
+    description:
+      "A production-oriented workspace for generating and assembling video content with reusable automation and media-processing workflows.",
+    stack: ["Python", "AI media", "Automation", "Video processing"],
+    repo: "https://github.com/tusarimrananik/video-generator",
+    accent: "emerald",
+  },
+  {
+    number: "08",
+    title: "Video Joiner",
+    type: "Desktop media utility",
+    description:
+      "A small utility designed to combine video clips through a simple workflow, reducing repetitive editing work.",
+    stack: ["Desktop app", "Video processing", "Automation"],
+    repo: "https://github.com/tusarimrananik/video-joiner",
+    accent: "amber",
+  },
+  {
+    number: "09",
+    title: "Auto Message Sender",
+    type: "Workflow automation tool",
+    description:
+      "A messaging utility built to simplify repetitive communication tasks through a focused automation workflow.",
+    stack: ["JavaScript", "Automation", "Web tooling"],
+    repo: "https://github.com/tusarimrananik/auto-message-sender",
+    accent: "violet",
+  },
+  {
+    number: "10",
+    title: "ChatGPT RAM Saver",
+    type: "Browser performance utility",
+    description:
+      "A lightweight utility focused on making long ChatGPT sessions easier on system memory and everyday browser performance.",
+    stack: ["JavaScript", "Browser APIs", "Performance"],
+    repo: "https://github.com/tusarimrananik/chatgpt-ram-saver",
+    accent: "emerald",
+  },
+  {
+    number: "11",
+    title: "Facebook Profile",
+    type: "Interactive web experience",
+    description:
+      "A public frontend experiment that recreates a social-profile experience and is published through GitHub Pages.",
+    stack: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+    repo: "https://github.com/tusarimrananik/facebook-profile",
+    live: "https://tusarimrananik.github.io/facebook-profile/",
+    accent: "amber",
+  },
+  {
+    number: "12",
+    title: "Blood Donor App",
+    type: "Community web platform",
+    description:
+      "A practical platform concept designed to help connect blood donors with people who need urgent support.",
+    stack: ["Web app", "JavaScript", "Community product"],
+    repo: "https://github.com/tusarimrananik/blood-donor-app",
     accent: "violet",
   },
 ];
@@ -148,7 +239,8 @@ export default function Home() {
             <h2>Projects built to solve real problems.</h2>
           </div>
           <p className="section-note">
-            A mix of product engineering, mobile development and applied AI.
+            Recent work across product engineering, browser extensions, mobile,
+            automation and applied AI.
           </p>
         </div>
 
@@ -164,15 +256,26 @@ export default function Home() {
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
                 </div>
-                <a
-                  className="project-link"
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`View ${project.title} on GitHub`}
-                >
-                  <ArrowUpRight size={23} aria-hidden="true" />
-                </a>
+                <div className="project-actions">
+                  {project.live && (
+                    <a
+                      className="project-action"
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Live <ArrowUpRight size={15} aria-hidden="true" />
+                    </a>
+                  )}
+                  <a
+                    className="project-action"
+                    href={project.repo}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Github size={15} aria-hidden="true" /> Code
+                  </a>
+                </div>
               </div>
               <div className="tag-list" aria-label={`${project.title} technologies`}>
                 {project.stack.map((item) => (
