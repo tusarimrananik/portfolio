@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "MD. Tusar Imran — CSE Student & Developer",
+    default: "MD. Tusar Imran — Software & AI Product Builder",
     template: "%s · MD. Tusar Imran",
   },
   description:
-    "Portfolio of MD. Tusar Imran, a Computer Science & Engineering undergraduate at RUET building web, Android and AI-enabled products.",
+    "Portfolio of MD. Tusar Imran, a RUET CSE undergraduate building web apps, Chrome extensions, Android utilities, automation tools and AI-enabled products.",
   keywords: [
     "MD. Tusar Imran",
     "Tusar Imran Anik",
@@ -18,17 +18,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "MD. Tusar Imran" }],
   openGraph: {
-    title: "MD. Tusar Imran — CSE Student & Developer",
+    title: "MD. Tusar Imran — Software & AI Product Builder",
     description:
-      "Web, Android and AI-enabled projects by a CSE undergraduate at RUET.",
+      "Web apps, Chrome extensions, Android utilities, automation and AI-enabled products by a RUET CSE undergraduate.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary",
-    title: "MD. Tusar Imran — CSE Student & Developer",
+    title: "MD. Tusar Imran — Software & AI Product Builder",
     description:
-      "Web, Android and AI-enabled projects by a CSE undergraduate at RUET.",
+      "Web apps, Chrome extensions, Android utilities, automation and AI-enabled products by a RUET CSE undergraduate.",
   },
 };
 
