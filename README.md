@@ -1,6 +1,6 @@
 # MD. Tusar Imran — Portfolio
 
-A professional portfolio for MD. Tusar Imran, a Computer Science & Engineering undergraduate at RUET. It highlights verified web, Android and AI projects and includes a downloadable résumé.
+A professional portfolio for MD. Tusar Imran, a Computer Science & Engineering undergraduate at RUET. It showcases recent web apps, Chrome extensions, Android utilities, automation tools and AI projects with direct GitHub links.
 
 ## Development
 
