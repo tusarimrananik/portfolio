@@ -1,4 +1,8 @@
 import Image from "next/image";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
+const portraitSource = `data:image/jpeg;base64,${readFileSync(join(process.cwd(), "public/profile.jfif")).toString("base64")}`;
 import { ArrowDown, ArrowUpRight, Download, Github } from "lucide-react";
 import ProjectGrid from "./project-grid";
 import MobileNav from "./mobile-nav";
@@ -18,7 +22,7 @@ export default function Home() {
       <section className="hero wrap" id="top" aria-labelledby="hero-title">
         <div className="hero-topline"><p className="eyebrow"><span className="small-cross" aria-hidden="true">+</span> SOFTWARE & AI PRODUCT BUILDER</p><span className="location">RAJSHAHI, BANGLADESH</span></div>
         <div className="hero-grid"><div className="hero-copy"><h1 id="hero-title">Useful ideas.<br />Thoughtful<br /><span>software.</span></h1><div className="hero-intro"><span className="intro-rule" aria-hidden="true"/><p>I’m <strong>MD. Tusar Imran.</strong> A RUET CSE undergraduate turning everyday problems into web, mobile and AI-enabled tools.</p></div><div className="hero-actions"><a className="button primary" href="#work">Explore my work <ArrowDown size={18} aria-hidden="true" /></a><a className="subtle-link" href="https://github.com/tusarimrananik" target="_blank" rel="noreferrer"><Github size={18} aria-hidden="true" /> GitHub <ArrowUpRight size={15} aria-hidden="true" /></a></div></div>
-        <figure className="portrait"><div className="portrait-image"><Image src="/profile.jfif" alt="Portrait of MD. Tusar Imran" fill priority sizes="(max-width: 700px) 85vw, 35vw" /><span className="portrait-corner" aria-hidden="true"/><span className="portrait-index" aria-hidden="true">TI / 01</span></div><figcaption><span>THE PERSON BEHIND THE CODE</span><span>CSE · RUET</span></figcaption><div className="portrait-stamp" aria-hidden="true">BUILD.<br />LEARN.<br />REPEAT.<ArrowUpRight size={26}/></div></figure></div>
+        <figure className="portrait"><div className="portrait-image"><Image unoptimized src={portraitSource} alt="Portrait of MD. Tusar Imran" fill priority sizes="(max-width: 700px) 85vw, 35vw" /><span className="portrait-corner" aria-hidden="true"/><span className="portrait-index" aria-hidden="true">TI / 01</span></div><figcaption><span>THE PERSON BEHIND THE CODE</span><span>CSE · RUET</span></figcaption><div className="portrait-stamp" aria-hidden="true">BUILD.<br />LEARN.<br />REPEAT.<ArrowUpRight size={26}/></div></figure></div>
         <div className="hero-foot"><span>WEB · MOBILE · AUTOMATION · APPLIED AI</span><a href="#work">SCROLL TO EXPLORE <ArrowDown size={14} aria-hidden="true" /></a></div>
       </section>
       <section className="work-section wrap section" id="work" aria-labelledby="work-title"><div className="section-label"><span>01 / SELECTED WORK</span><span>IDEAS, MADE REAL.</span></div><div className="section-heading"><h2 id="work-title">Built with<br /><span>purpose.</span></h2><p>A collection of practical tools, experiments and platforms. Different problems. The same curiosity.</p></div><ProjectGrid/><a className="text-link repository-link" href="https://github.com/tusarimrananik?tab=repositories" target="_blank" rel="noreferrer">More in the repositories <ArrowUpRight size={18} aria-hidden="true" /></a></section>
