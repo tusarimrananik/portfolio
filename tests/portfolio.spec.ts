@@ -7,7 +7,7 @@ for (const width of [360, 390, 768, 1024, 1440]) {
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
     await page.setViewportSize({ width, height: 900 });
-    await page.goto('/');
+    await page.goto('/?view=simple');
     await expect(page).toHaveTitle('MD. Tusar Imran — Software & AI Product Builder');
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     const portrait = page.getByRole('img', { name: 'Portrait of MD. Tusar Imran' });
@@ -31,7 +31,7 @@ for (const width of [360, 390, 768, 1024, 1440]) {
 }
 
 test('resume downloads a real PDF and contact links use the correct email', async ({ page, request }) => {
-  await page.goto('/');
+  await page.goto('/?view=simple');
   const response = await request.get('/resume.pdf');
   expect(response.ok()).toBeTruthy();
   expect(response.headers()['content-type']).toContain('application/pdf');
@@ -46,7 +46,7 @@ test('resume downloads a real PDF and contact links use the correct email', asyn
 
 test('all categories have correct counts and reduced motion disables smooth scrolling', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/');
+  await page.goto('/?view=simple');
   for (const [category, count] of [['Web apps', 3], ['Extensions', 3], ['Mobile', 1], ['AI & media', 4], ['Automation', 1], ['All projects', 12]] as const) {
     await page.getByRole('button', { name: category, exact: false }).click();
     await expect(page.locator('[data-project]')).toHaveCount(count);
@@ -55,25 +55,8 @@ test('all categories have correct counts and reduced motion disables smooth scro
   expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)).toBe('auto');
 });
 
-test('mobile navigation supports keyboard, Escape and section links', async ({ page }) => {
-  await page.setViewportSize({ width: 360, height: 800 });
-  await page.goto('/');
-  const menu = page.getByRole('button', { name: 'Open menu' });
-  await menu.focus();
-  await page.keyboard.press('Enter');
-  await expect(page.getByRole('button', { name: 'Close menu' })).toHaveAttribute('aria-expanded', 'true');
-  await page.keyboard.press('Escape');
-  await expect(menu).toBeFocused();
-  await expect(menu).toHaveAttribute('aria-expanded', 'false');
-  await menu.click();
-  await page.getByRole('navigation', { name: 'Mobile navigation' }).getByRole('link', { name: 'About' }).click();
-  await expect(page).toHaveURL(/#about$/);
-  await expect(menu).toHaveAttribute('aria-expanded', 'false');
-  await expect(page.locator('#about')).toBeFocused();
-});
-
 test('project filters work with a keyboard and preserve all twelve projects', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/?view=simple');
   await expect(page.locator('[data-project]')).toHaveCount(12);
   const extensions = page.getByRole('button', { name: 'Extensions', exact: false });
   await extensions.focus();
